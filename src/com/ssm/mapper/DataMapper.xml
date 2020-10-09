@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.DataMapper">
+
+<select id="findData" parameterType="com.ssm.entity.Data_sjk" resultType="com.ssm.entity.Data_sjk">
+select TABLE_NAME,
+ concat(truncate(data_length/1024/1024,2),' MB') as data_size,
+ table_rows from information_schema.tables where TABLE_SCHEMA = 'springmvc' ORDER BY  table_rows;
+</select>
+
+<select id="findNum" parameterType="com.ssm.entity.Data_sjk" resultType="com.ssm.entity.Data_sjk">
+SELECT COUNT(*) table_num FROM information_schema.TABLES   WHERE table_schema = 'springmvc';
+</select>
+</mapper>

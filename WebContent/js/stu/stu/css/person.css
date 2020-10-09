@@ -1,0 +1,246 @@
+body{
+    background-color: #32323a;
+}
+.header {
+    background-color: #32323a;
+}
+.content{
+    margin-bottom: 50px;
+}
+.content .person{
+    margin-top: -1px;
+    background: url(../img/litter/women_02.png) center center;
+    height: 122px;
+}
+.content .person img{
+    float: left;
+    width: 6%;
+    margin-top: 25px;
+}
+.content .person .mentext{
+    float: left;
+    margin-top: 53px;
+    color: #fff;
+    font-size: 1.5em;
+    margin-left: 12px;
+}
+.content .wrapper{
+    margin-top: 35px;
+}
+.content .wrapper .tab{
+    float: left;
+    width: 222px;
+    margin-left:10%;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px #999;
+    border-radius: 5px;
+}
+.content .wrapper .tab ul{}
+.content .wrapper .tab ul li{
+    width: 100%;
+    /*color: #666;*/
+    height: 78px;
+    font-size: 1.8em;
+    text-align: center;
+    line-height: 78px;
+    border-bottom: 1px solid #ccc;
+	cursor: pointer;
+}
+
+.content .wrapper .products{
+    float: right;
+}
+.content .wrapper .products .main{
+    display: none;
+    width: 800px;
+    height: 545px;
+    background-color: #fff;
+    border-right: 5px;
+    border-radius: 5px;
+}
+.content .wrapper .products .main .classtit{
+    font-size: 2em;
+    color: #666;
+    padding-left: 25px;
+    height: 77px;
+    line-height: 77px;
+    border-bottom: 1px solid #ccc;
+}
+.content .wrapper .products .main .classtit .classtext{
+
+}
+.form{
+    padding: 27px 57px;
+}
+.form .line{
+    margin-bottom: 27px;
+}
+.form .line .linetext{
+    font-size: 1.6em;
+    margin-right: 11px;
+}
+.form .line .input{
+    height: 30px;
+    width: 67%;
+    font-size: 1.5em;
+    /* border: none; */
+}
+.form .line .inputname{
+    height: 30px;
+    width: 211px;
+    border-radius: 5px;
+    background-color: #eee;
+    border: 1px solid #999;
+}
+.form .line label{
+    margin-right: 16px;
+    font-size: 1.5em;
+}
+.form .line label input{
+    width: 20px;
+}
+.form .line .lineintro{
+    float: left;
+    font-size: 1.6em;
+    margin-right: 14px;
+}
+.form textarea{
+    width: 340px;
+    height: 164px;
+    background-color: #eee;
+}
+.submit{
+    width: 93px;
+    height: 37px;
+    line-height: 37px;
+    font-size: 1.7em;
+    text-align: center;
+    background-color: #fe7f58;
+    color: #fff;
+    margin-left: 305px;
+    border-radius: 5px;
+	cursor: pointer;
+}
+/*ͷ������*/
+.classtext .set{
+    padding: 27px 57px;
+}
+.classtext .set .setimg{
+    width: 150px;
+    height: 150px;
+}
+.classtext .setimg img{
+    width: 100%;
+}
+/*�ҵ���Ϣ*/
+.main .textli{
+    padding: 27px 57px;
+}
+.main .textli ul{}
+.main .textli ul li{
+    width: 100%;
+    height: 45px;
+}
+.main .textli ul li .textlileft{
+    float: left;
+}
+.main .textli ul li .textlileft .cycle{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+    margin-top: 7px;
+}
+.main .textli ul li .textlileft .cycletext{
+    width: 527px;
+    font-size: 1.6em;
+    /* width: 100%; */
+    height: 21px;
+    float: left;
+    color: #666;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.main .textli ul li .textliright{
+    float: right;
+    font-size: 1.5em;
+    color: #666;
+}
+.tab .active{
+    background-color: #fe7f58;
+    color: #fff;
+}
+.content .wrapper .products .selected {
+    display: block;
+}
+.curse{
+    cursor: pointer;
+}
+/*����*/
+.pointdelcount{
+    display: none;
+    z-index: 10000;
+    background: #fff;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    /*margin-left: -13%;*/
+    margin-top: 0px;
+    /*margin-top: 346px;*/
+    margin-left: -10%;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 1%;
+}
+.pointdelcount h2{
+    font-size: 1.2em;
+    color: red;
+    padding: 0 0 4%;
+    border-bottom: 1px solid #eee;
+}
+.pointdelcount p{
+    color: #666;
+    font-size: 1em;
+    margin: 5% 0;
+}
+.pointdelcount button{
+    background: #fe7f58;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 2% 6%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+@media only screen and (min-width: 0px) and (max-width: 1200px) {
+    .content .wrapper .tab {
+        width: 245px;
+    }
+    .content .wrapper .products .main {
+        width: 588px;
+    }
+    .main .textli ul li .textlileft .cycletext {
+        width: 345px;
+    }
+    .submit {
+        margin-left: 185px;
+    }
+}
+@media only screen and (min-width: 1201px) and (max-width: 1366px) {
+    .content .wrapper .tab {
+        width: 370px;
+    }
+    .content .wrapper .products .main {
+        width: 681px;
+    }
+    .main .textli ul li .textlileft .cycletext {
+        width: 330px;
+    }
+    .submit {
+        margin-left: 185px;
+    }
+}

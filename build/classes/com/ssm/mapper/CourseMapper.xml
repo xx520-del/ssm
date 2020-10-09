@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.CourseMapper">
+<!-- courses表的mysql -->
+<select id="selectCourses" parameterType="com.ssm.entity.Course" resultType="com.ssm.entity.Course">
+SELECT *
+FROM courses
+WHERE NAME like CONCAT('%',#{name},'%') or id like CONCAT('%',#{name},'%') or tip like CONCAT('%',#{name},'%') or teacher like CONCAT('%',#{name},'%') or type like CONCAT('%',#{name},'%') or cre_time like CONCAT('%',#{name},'%')
+
+</select>
+<insert id="insertCourses" parameterType="com.ssm.entity.Course" >
+	INSERT INTO `courses` (Name,type,teacher,number,price,cre_time,img,tip,stu_much,depid,video) VALUES(#{name},#{type},#{teacher},#{number},#{price},#{cre_time},#{img},#{tip},#{stu_much},#{depid},#{video})
+</insert>
+
+<insert id="tea_insertCourses" parameterType="com.ssm.entity.Course" >
+	INSERT INTO `courses` (Name,type,teacher,number,price,cre_time,img,tip,stu_much,video) VALUES(#{name},#{type},#{teacher},#{number},#{price},#{cre_time},#{img},#{tip},#{stu_much},#{video})
+</insert>
+
+<update id="saveCourses" parameterType="com.ssm.entity.Course">
+	update `courses` set `name` = #{name}, phone = #{phone} where id = #{id}
+</update>
+
+<update id="muchCourses" parameterType="com.ssm.entity.Course">
+	update courses set stu_much=stu_much+1 where id = #{id}
+</update>
+
+<delete id="deleteCourses"  parameterType="com.ssm.entity.Course">
+	delete from `courses` where id = #{id}
+</delete>
+<select id="hotCourses" parameterType="com.ssm.entity.Course" resultType="com.ssm.entity.Course">
+	SELECT * FROM courses ORDER BY stu_much DESC LIMIT 0,4;
+</select>
+<select id="yxCourses" parameterType="com.ssm.entity.Course" resultType="com.ssm.entity.Course">
+	SELECT * FROM courses WHERE depid=#{id}
+</select>
+<select id="getCourses" parameterType="com.ssm.entity.Course" resultType="com.ssm.entity.Course">
+	SELECT id,NAME,type,teacher,number,price,cre_time,img,tip,stu_much,video FROM courses where depid is null;
+</select>
+<select id="coursexqCourses" parameterType="com.ssm.entity.Course" resultType="com.ssm.entity.Course">
+	SELECT id,NAME,type,teacher,number,price,cre_time,img,tip,stu_much,video FROM courses where id=#{id}
+</select>
+<select id="hotTeachers" parameterType="com.ssm.entity.Teacher" resultType="com.ssm.entity.Teacher">
+	SELECT * FROM teachers ORDER BY id DESC LIMIT 0,4;
+</select>
+
+</mapper>
+

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.UserMapper">
+<insert id="insertlogintimeStudents" parameterType="com.ssm.entity.Student">
+	INSERT INTO `students` (Name,sex,phone,iconurl,cdate,logintime,depid) VALUES(#{name},#{sex},#{phone},#{iconurl},#{cdate},#{logintime},#{depid})
+</insert>
+<insert id="insertlogintimeTeachers" parameterType="com.ssm.entity.Teacher">
+	INSERT INTO `teachers` (cdate,logintime,depid) VALUES(#{cdate},#{logintime},#{depid})
+</insert>
+<update id="logintimeStudents" parameterType="com.ssm.entity.Student">
+	update students set name=#{name},logintime=#{logintime} where depid = #{depid}
+</update>
+<update id="logintimeTeachers" parameterType="com.ssm.entity.Teacher">
+	update teachers set logintime=#{logintime} where depid = #{depid}
+</update>
+<select id="findStudents" parameterType="com.ssm.entity.Student" resultType="com.ssm.entity.Text">
+SELECT NAME,sex,phone,cdate,iconurl FROM students WHERE depid = #{depid}
+</select>
+
+<select id="getuserStudents" parameterType="com.ssm.entity.Student" resultType="com.ssm.entity.Student">
+SELECT NAME,sex,phone,cdate,iconurl,logintime FROM students WHERE depid = #{depid}
+</select>
+
+<select id="findTeachers" parameterType="com.ssm.entity.Teacher" resultType="com.ssm.entity.Text2">
+SELECT NAME,sex,phone,cdate,iconurl,tip FROM teachers WHERE depid = #{depid}
+</select>
+
+<select id="registeUsers" parameterType="com.ssm.entity.User" resultType="com.ssm.entity.User">
+SELECT
+		id,
+		username,
+		password,
+		type
+	FROM
+		USER
+	WHERE
+	username = #{username}
+</select>
+
+<select id="findUsers" parameterType="com.ssm.entity.User" resultType="com.ssm.entity.User">
+	SELECT
+		id,
+		username,
+		password,
+		type
+	FROM
+		USER
+	WHERE
+		1 = 1 and username = #{username} and password = #{password} and type = #{type}
+<!--		<if test=" id != null and id !='' ">
+			and id = #{id}
+		</if>
+		<if test=" username != null and username !='' ">
+			and username = #{username}
+		</if>
+		<if test=" password != null and password !='' ">
+			and password = #{password}
+		</if>
+		<if test=" type != null and type !='' ">
+			and type = #{type}
+		</if>
+-->
+</select>
+
+<insert id="insertUsers" parameterType="com.ssm.entity.User">
+	INSERT INTO `USER` (username, password, type) VALUES( #{username}, #{password}, #{type})
+</insert>
+
+<update id="saveUsers" parameterType="com.ssm.entity.User">
+	update `user` set username = #{username}, password = #{password} where id = #{id}
+</update>
+<delete id="deleteUsers"  parameterType="com.ssm.entity.User">
+	delete from `user` where id = #{id}
+</delete>
+<select id="getUser" parameterType="com.ssm.entity.User" resultType="com.ssm.entity.User">
+	SELECT
+		id,
+		username,
+		password,
+		type
+	FROM
+		USER	
+</select>
+</mapper>
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.UserMapper">
+
+user的mysql
+<select id="findUsers" parameterType="com.ssm.entity.User" resultType="com.ssm.entity.User">
+	SELECT
+		id,
+		NAME,
+		phone
+	FROM
+		USER
+	WHERE
+		1 = 1
+		<if test=" id != null and id !='' ">
+			and id = #{id}
+		</if>
+		<if test=" name != null and name !='' ">
+			and name = #{name}
+		</if>
+		<if test=" phone != null and phone !='' ">
+			and phone = #{phone}
+		</if>
+</select>
+<insert id="insertUsers" parameterType="com.ssm.entity.User">
+	INSERT INTO `USER` (id, `NAME`, phone) VALUES(#{id}, #{name}, #{phone})
+</insert>
+<update id="saveUsers" parameterType="com.ssm.entity.User">
+	update `user` set `name` = #{name}, phone = #{phone} where id = #{id}
+</update>
+<delete id="deleteUsers"  parameterType="com.ssm.entity.User">
+	delete from `user` where id = #{id}
+</delete>
+<select id="getUser" parameterType="com.ssm.entity.User" resultType="com.ssm.entity.User">
+	SELECT
+		id,
+		NAME,
+		phone
+	FROM
+		USER
+	WHERE
+		id = #{id}
+</select>
+
+
+
+
+
+
+
+
+
+</mapper> -->

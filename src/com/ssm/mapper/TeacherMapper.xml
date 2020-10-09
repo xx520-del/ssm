@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.TeacherMapper">
+<!-- teachers表的mysql -->
+<insert id="insertTeachers" parameterType="com.ssm.entity.Teacher">
+	INSERT INTO `teachers` (Name,sex,phone,cdate,iconurl,tip,depid) VALUES(#{name},#{sex},#{phone},#{cdate},#{iconurl},#{tip},#{depid})
+</insert>
+<update id="saveTeachers" parameterType="com.ssm.entity.Teacher">
+	update `teachers` set `name` = #{name}, phone = #{phone} where id = #{id}
+</update>
+<delete id="deleteTeachers"  parameterType="com.ssm.entity.Teacher">
+	delete from `teachers` where id = #{id}
+</delete>
+<select id="getTeachers" parameterType="com.ssm.entity.Teacher" resultType="com.ssm.entity.Teacher">
+	SELECT * FROM teachers
+</select>
+<select id="getTeacherids" parameterType="com.ssm.entity.User" resultType="com.ssm.entity.User">
+	SELECT id FROM user where type=2
+</select>
+<select id="hotTeachers" parameterType="com.ssm.entity.Teacher" resultType="com.ssm.entity.Teacher">
+	SELECT * FROM teachers ORDER BY id DESC LIMIT 0,4;
+</select>
+
+<select id="main_tea_xinxi" parameterType="com.ssm.entity.Teacher" resultType="com.ssm.entity.Teacher">
+	SELECT * FROM teachers where depid=#{depid}
+</select>
+<select id="main_tea_course" parameterType="com.ssm.entity.Course" resultType="com.ssm.entity.Course">
+	SELECT * FROM courses where teacher=#{name}
+</select>
+</mapper>
+

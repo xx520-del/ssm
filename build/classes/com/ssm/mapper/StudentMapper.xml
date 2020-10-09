@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.StudentMapper">
+<!-- students表的mysql -->
+<select id="getuserStudents" parameterType="com.ssm.entity.Student" resultType="com.ssm.entity.Student">
+SELECT NAME,sex,phone,cdate,iconurl,logintime FROM students WHERE depid = #{depid}
+</select>
+
+<select id="findStudents" parameterType="com.ssm.entity.Student" resultType="com.ssm.entity.Text">
+SELECT NAME,sex,phone,cdate,iconurl FROM students WHERE depid = #{depid}
+</select>
+<insert id="insertStudents" parameterType="com.ssm.entity.Student">
+	INSERT INTO `students` (Name,sex,phone,iconurl,cdate,depid) VALUES(#{name},#{sex},#{phone},#{iconurl},#{cdate},#{depid})
+</insert>
+<update id="saveImg" parameterType="com.ssm.entity.Student">
+	update students set iconurl=#{iconurl},cdate=#{cdate} where depid = #{depid}
+</update>
+<update id="saveStudents" parameterType="com.ssm.entity.Student">
+	update students set name=#{name},sex = #{sex}, phone = #{phone},cdate=#{cdate} where depid = #{depid}
+</update>
+<delete id="deleteStudents"  parameterType="com.ssm.entity.Student">
+	delete from `students` where id = #{id}
+</delete>
+<select id="getStudents" parameterType="com.ssm.entity.Student" resultType="com.ssm.entity.Student">
+	SELECT id,NAME,phone,sex,phone,cdate,iconurl,logintime,depid FROM students
+</select>
+
+</mapper>
+
