@@ -8,4 +8,4 @@
 
 首页
 ---
-![index](https://github.com/xx520-del/ssm/raw/master/1.png)
+![index](https://github.com/xx520-del/ssm/master/1.png)
