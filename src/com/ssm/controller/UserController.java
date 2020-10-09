@@ -60,7 +60,7 @@ public class UserController {
  
 			email.setFrom("wx-1999@qq.com", "湖北二师网上学习平台");//此处填邮箱地址和用户名,用户名可以任意填写
  
-			email.setAuthentication("wx-1999@qq.com", "zebwyqfskxrccfhe");//此处填写邮箱地址和客户端授权码
+			email.setAuthentication("wx-1999@qq.com", "授权码");//此处填写邮箱地址和客户端授权码
  
 			email.setSubject("湖北二师网上学习平台测试");//此处填写邮件名，邮件名可任意填写
 			email.setMsg("亲爱的王潇组的成员，您好,您在本平台注册的账号:"+username+"已被管理员注销!");//此处填写邮件内容
@@ -222,7 +222,7 @@ public class UserController {
 		 
 					email.setFrom("wx-1999@qq.com", "湖北二师网上学习平台");//此处填邮箱地址和用户名,用户名可以任意填写
 		 
-					email.setAuthentication("wx-1999@qq.com", "zebwyqfskxrccfhe");//此处填写邮箱地址和客户端授权码
+					email.setAuthentication("wx-1999@qq.com", "授权码");//此处填写邮箱地址和客户端授权码
 		 
 					email.setSubject("湖北二师网上学习平台测试");//此处填写邮件名，邮件名可任意填写
 					email.setMsg("亲爱的王潇组的成员，您好,您本次注册的验证码是:" + code);//此处填写邮件内容
